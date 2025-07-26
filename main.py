@@ -26,4 +26,3 @@ while True:
     l = [x*x for x in numbers if x > 0]
     print(l)
     break
-    ran
