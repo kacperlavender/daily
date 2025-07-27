@@ -1,28 +1,24 @@
-# Napisz program, który:
-#
-#     Pobierze od użytkownika ciąg liczb całkowitych oddzielonych spacją (np. 4 7 -2 10 3).
-#     Zwróci listę liczb tylko dodatnich i podniesie je do kwadratu.
-#     Jeśli użytkownik poda coś, co nie jest liczbą, program powinien wyświetlić komunikat o błędzie i poprosić o podanie liczb ponownie (czyli aż do skutku).
+# Zadanie na dziś to kolejny krok w stronę praktycznych umiejętności, które są przydatne na stanowisku Junior Python Developer. Tym razem poćwiczysz pracę z ciągami znaków, słownikami i prostą analizą tekstu.
+# Treść zadania:
+
+#     Poproś użytkownika o wpisanie dowolnego tekstu (może być nawet kilka zdań).
+#     Policz, ile razy występuje każda litera w tekście (ignoruj wielkość liter, nie licz znaków innych niż litery alfabetu).
+#     Wynik pokaż w formie słownika (np. {'a': 3, 'b': 0, ...}), gdzie klucz to litera, a wartość to jej liczba wystąpień.
+#     Posortuj słownik alfabetycznie po literach przed wyświetleniem.
 
 
-while True:
-    lst = []
+text = input("podaj zdanie ktorego liczbe wystapien liter chcesz policzyc:\n")
 
-    try:
-        user_input = input("podaj liczby oddzielone spacjami: ")
-        numbers = [int(x.strip()) for x in user_input.split(" ")]
+text = text.lower()
 
-        # for i in range(len(numbers)):
-        #     if numbers[i-1] > 0:
-        #         lst.append(numbers[i-1])
-        #     else:
-        #         continue
+d = {}
 
-    except ValueError as e:
-        print(e)
-        print("niepoprawny format. podaj liczby ponownie")
-        continue
+for char in text:
+    if char.isalpha():
+        if char in d:
+            d[char] += 1
+        else:
+            d[char] = 1
 
-    l = [x*x for x in numbers if x > 0]
-    print(l)
-    break
+print(d)
+print({k: d[k] for k in sorted(d)})
