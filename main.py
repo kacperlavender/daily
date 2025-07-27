@@ -1,24 +1,24 @@
-# Zadanie na dziś to kolejny krok w stronę praktycznych umiejętności, które są przydatne na stanowisku Junior Python Developer. Tym razem poćwiczysz pracę z ciągami znaków, słownikami i prostą analizą tekstu.
 # Treść zadania:
+#     Napisz funkcję filtruj_i_podnos, która:
+#         Przyjmuje listę liczb całkowitych.
+#         Filtruje z niej liczby parzyste większe niż 10.
+#         Następnie podnosi każdą z tych liczb do potęgi 3 (sześcian).
+#         Zwraca nową listę wynikową.
 
-#     Poproś użytkownika o wpisanie dowolnego tekstu (może być nawet kilka zdań).
-#     Policz, ile razy występuje każda litera w tekście (ignoruj wielkość liter, nie licz znaków innych niż litery alfabetu).
-#     Wynik pokaż w formie słownika (np. {'a': 3, 'b': 0, ...}), gdzie klucz to litera, a wartość to jej liczba wystąpień.
-#     Posortuj słownik alfabetycznie po literach przed wyświetleniem.
+#     Napisz prosty program, który:
+#         Poprosi użytkownika o podanie liczb całkowitych oddzielonych spacją.
+#         Zamieni je na listę liczb.
+#         Użyje funkcji filtruj_i_podnos do przetworzenia listy.
+#         Wypisze wynik.
 
+def filtruj_i_podnos(l: list):
+    # for i in range(len(l)):
+    #     l[i] = int(l[i])
 
-text = input("podaj zdanie ktorego liczbe wystapien liter chcesz policzyc:\n")
+    return [x**3 for x in l if x > 10 and x % 2 == 0]
 
-text = text.lower()
+text = input("podaj liczby oddzielone spacjami:\n")
+# l = text.split(" ")
+l = [int(x) for x in text.split()]
 
-d = {}
-
-for char in text:
-    if char.isalpha():
-        if char in d:
-            d[char] += 1
-        else:
-            d[char] = 1
-
-print(d)
-print({k: d[k] for k in sorted(d)})
+print(filtruj_i_podnos(l))
